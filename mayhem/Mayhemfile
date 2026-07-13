@@ -1,0 +1,11 @@
+# Mayhem target: python-qrcode QR code generator (Atheris/libFuzzer harness).
+# The cmd binary is the compiled ELF launcher that drives mayhem/fuzz_gen.py; Atheris
+# instruments the qrcode library so the run records coverage (edges).
+# Target name `make-fuzz` is the historical name from the original integration —
+# kept so prior Mayhem run history stays attached.
+project: python-qrcode
+target: make-fuzz
+
+cmds:
+  - cmd: /mayhem/qrcode_fuzzer
+    libfuzzer: true
